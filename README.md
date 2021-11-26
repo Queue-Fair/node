@@ -115,7 +115,7 @@ The Server-Side Adapter contains multiple checks to prevent visitors bypassing t
 
 ## AND FINALLY
 
-All client-modifiable settings are in the `QueueFairConfig` class.  You should never find you need to modify `QueueFairAdapter.js` - but if something comes up, please contact support@queue-fair.com right away so we can discuss your requirements.
+All client-modifiable settings are in `QueueFairConfig.js`.  You should never find you need to modify `QueueFairAdapter.js` - but if something comes up, please contact support@queue-fair.com right away so we can discuss your requirements.
 
 Remember we are here to help you! The integration process shouldn't take you more than an hour - so if you are scratching your head, ask us.  Many answers are contained in the Technical Guide too.  We're always happy to help!
 
