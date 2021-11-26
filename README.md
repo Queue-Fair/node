@@ -50,17 +50,17 @@ Here's how to add Queue-Fair to your Node.js project.
 
 **4.** Take a look at `express-example/server.js`
 
-**5.** In your code you will need the goQueueFair function from there.  There is also example code for validating a cookie (Hybrid Security Model - see Technical Guide).
+**5.** In your code you will need to copy and paste the `goQueueFair()` convenience function from `server.js`.  There is also example code for validating a cookie (Hybrid Security Model - see Technical Guide).
 
-**6.** Take a look at QueueFairConfig.js, which shows the available configuration options for the adapter.
+**6.** Take a look at `QueueFairConfig.js`, which shows the available configuration options for the adapter.
 
 **7.** Set your Account Secret and Account System Name in the code where indicated.
 
-**8.** The recommended way of using the Adapter is with await, as shown in the the `get('/')` method of `server.js`.  You can also use it without await, but if you do that only Simple mode is supported. That is shown in the `get('/about')` method of `server.js`.
+**8.** The recommended way of using the Adapter is with async/await, as shown in the the `get('/')` method of `server.js`.  You can also use it without await, but if you do that only Simple mode is supported. That is shown in the `get('/about')` method of `server.js`.
 
 **9.** **IMPORTANT** Note the `QueueFairConfig.debug` setting - this is set to true in the example code but you MUST set debug to false on production machines/live queues as otherwise your web logs will rapidly become full.  You can safely set it to a single IP address to just output debug information for a single visitor, even on a production machine.
 
-**10.** To run the adapter, call goQueueFair() in your routes or headers as shown in server.js
+**10.** To run the adapter, call `goQueueFair()` in your routes or headers as shown in server.js
 
 That's it your done!
 
@@ -68,7 +68,7 @@ In your `server.js` functions you should always ensure that `goQueueFair()` is t
 
 In the case where the Adapter sends the request elsewhere (for example to show the user a queue page), `goQueueFair()` will return false and the rest of the page should not be run.
 
-If your web server is sitting behind a proxy, CDN or load balancer, you may need to edit the property sets in goQueueFair() to use values from forwarded headers instead.  If you need help with this, contact Queue-Fair support.
+If your web server is sitting behind a proxy, CDN or load balancer, you may need to edit the property sets in `goQueueFair()` to use values from forwarded headers instead.  If you need help with this, contact Queue-Fair support.
 
 ### To test the Server-Side Adapter
 
