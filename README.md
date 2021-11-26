@@ -39,7 +39,7 @@ If you are not using Express, you can still use the example code in `server.js` 
 
 Here's how to add Queue-Fair to your Node.js project.
 
-**1.** Copy the queue-fair folder from this distribution somwhere into your webapp folder heirarchy.  It can go anywhere.  The example code has it in the top level folder of your webapp.
+**1.** Copy the `queue-fair` folder from this distribution somwhere into your webapp folder heirarchy.  It can go anywhere your webapp can find it.  The example code has it in the top level folder of your webapp.
 
 
 **2.** **IMPORTANT:** Make sure the system clock on your webserver is accurately set to network time! On unix systems, this is usually done with the ntp package.  It doesn't matter which timezone you are using.  For Debian/Ubuntu:
