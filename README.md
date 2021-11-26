@@ -48,7 +48,7 @@ Here's how to add Queue-Fair to your Node.js project.
     sudo apt-get install ntp
 ```
 
-**4.** Take a look at express-example/server.js
+**4.** Take a look at `express-example/server.js`
 
 **5.** In your code you will need the goQueueFair function from there.  There is also example code for validating a cookie (Hybrid Security Model - see Technical Guide).
 
