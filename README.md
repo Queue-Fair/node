@@ -33,7 +33,7 @@ If a visitor requests a page that DOES match any queue's Activation Rules, the A
 
 Thus the Server-Side Adapter prevents visitors from skipping the queue by disabling the Client-Side JavaScript Adapter, and also reduces load on your web server when things get busy.
 
-These instructions assume you already have a Node.js webapp using Express .  The example code in this distribution also uses EJS but you don't have to use it - it's just for demonstration purposes.  If you are setting up an Express webapp for the first time, or want to run the example code, follow the turtorial at https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application - you only need to do Step 1.
+These instructions assume you already have a Node.js webapp using Express .  The example code in this distribution also uses EJS but you don't have to use it - it's just for demonstration purposes.  If you are setting up an Express webapp for the first time, or want to run the example code, follow the turtorial at https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application - you only need to do Step 1 of the tutorial.
 
 If you are not using Express, you can still use the example code in `server.js` from this distribution - but you will also need to implement your own QueueFairService class to encapsulate your alternative HTTP framework.  It's only five basic methods to write.
 
@@ -46,6 +46,12 @@ Here's how to add Queue-Fair to your Node.js project.
 
 ```
     sudo apt-get install ntp
+```
+
+**3.** 'QueueFairService` uses the `cookie-parser` module to process cookies.  If you don't already have it, get it with:
+
+```
+    npm install cookie-parser
 ```
 
 **4.** Take a look at `express-example/server.js`
