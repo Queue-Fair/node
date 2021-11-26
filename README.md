@@ -99,7 +99,7 @@ Go back to the Portal and put the queue in Demo mode on the Queue Settings page.
  - If the Adapter is in Safe mode, also verify that the QueueFair-Store cookie has not changed its value.
  - Hit Refresh.  Verify that you are not queued again.  Verify that the cookies have not changed their values.
 
-**IMPORTANT:**  Once you are sure the Server-Side Adapter is working as expected, remove the Client-Side JavaScript Adapter tag from your pages, and don't forget to disable debug level logging by setting `QueueFairConfig.DEBUG` to False (its default value), and also set `QueueFairConfig.settingsCacheLifetimeMiutes` to at least 5 (also its default value).
+**IMPORTANT:**  Once you are sure the Server-Side Adapter is working as expected, remove the Client-Side JavaScript Adapter tag from your pages, and don't forget to disable debug level logging by setting `QueueFairConfig.debug` to False (its default value), and also set `QueueFairConfig.settingsCacheLifetimeMiutes` to at least 5 (also its default value).
 
 **IMPORTANT:**  Responses that contain a `Location:` header or a `Set-Cookie` header from the Adapter must not be cached!  You can check which cache-control headers are present using your browser's Inspector Network Tab.  The Adapter will add a Cache-Control header to disable caching if it sets a cookie or sends a redirect - but you must not override these with your own code or framework.
 
