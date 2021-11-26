@@ -56,7 +56,7 @@ Here's how to add Queue-Fair to your Node.js project.
 
 **4.** Take a look at `express-example/server.js`
 
-**5.** In your code you will need to copy and paste the `goQueueFair()` convenience function from `server.js`.  There is also example code for validating a cookie (Hybrid Security Model - see Technical Guide).
+**5.** In your code you will need to copy and paste the `goQueueFair()` convenience function from `server.js`.  There is also example code for validating a cookie (Hybrid Security Model - see Technical Guide) in `server.js`.
 
 **6.** Take a look at `QueueFairConfig.js`, which shows the available configuration options for the adapter.
 
