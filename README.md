@@ -48,7 +48,7 @@ Here's how to add Queue-Fair to your Node.js project.
     sudo apt-get install ntp
 ```
 
-**3.** 'QueueFairService` uses the `cookie-parser` module to process cookies.  If you don't already have it, get it with:
+**3.** `QueueFairService` uses the `cookie-parser` module to process cookies.  If you don't already have it, get it with:
 
 ```
     npm install cookie-parser
