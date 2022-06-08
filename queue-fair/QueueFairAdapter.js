@@ -1256,7 +1256,7 @@ class QueueFairAdapter {
     if (this.finished) {
       return;
     }
-    log('QF Timed Out!');
+    this.log('QF Timed Out!');
     this.finished=true;
     if (this.res != null) {
       this.res(this.continuePage);
