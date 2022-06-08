@@ -16,7 +16,7 @@ exports.filesServer='files.queue-fair.net';
 exports.queryTimeLimitSeconds=30;
 
 // Valid values are true, false, or an "IP_address".
-exports.debug=true;
+exports.debug=false;
 
 // How long to wait in seconds for network reads of config
 // or Adapter Server (safe mode only)
