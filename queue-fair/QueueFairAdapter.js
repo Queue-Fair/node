@@ -25,6 +25,9 @@ class QueueFairAdapter {
   // Optional extra data for your Queue Page.
   extra = null;
 
+  // If you have multiple custom domains for your queues use this.
+  queueDomain = null;
+
   // -------------------- Internal use only -----------------
   static cookieNameBase='QueueFair-Pass-';
 
@@ -792,7 +795,7 @@ class QueueFairAdapter {
       this.adapterResult = JSON.parse(data);
       this.gotAdapter();
     } catch (err) {
-      errorHandler(err);
+      this.errorHandler(err);
     }
   }
 
@@ -842,6 +845,42 @@ class QueueFairAdapter {
         }
 
         let redirectLoc = this.adapterResult.location;
+
+        if(this.queueDomain) {
+          let qd = this.queueDomain;
+          if(this.d) this.log("Using queueDomain "+qd+" on "+redirectLoc);
+          let i = redirectLoc.indexOf("//");
+          if(i!=-1) {
+            i+=2;
+            let colPos = redirectLoc.indexOf(":",i);
+            let slashPos = redirectLoc.indexOf("/",i);
+            if(colPos==-1) {
+              //no colon
+              if(slashPos==-1) {
+                //https://some.domain
+                redirectLoc= redirectLoc.substring(0,i)+qd;
+              } else {
+                //https://some.domain/path
+                redirectLoc= redirectLoc.substring(0,i)+qd+redirectLoc.substring(slashPos);
+              }
+            } else {
+              //has a colon
+              if(slashPos == -1) {
+                //colon no slash
+                //https://some.domain:8080
+                redirectLoc= redirectLoc.substring(0,i)+qd+redirectLoc.substring(colPos);
+              } else if(colPos < slashPos) {
+                //https://some.domain:8080/path
+                redirectLoc= redirectLoc.substring(0,i)+qd+redirectLoc.substring(colPos);
+              } else {
+                //https://some.domain/path?param=:
+                redirectLoc= redirectLoc.substring(0,i)+qd+redirectLoc.substring(slashPos);
+              }
+            }
+          }
+          if(this.d) this.log("queueDomain applied "+redirectLoc);
+        }
+
         if (queryParams!=='') {
           redirectLoc=redirectLoc+'?'+queryParams;
         }
@@ -979,7 +1018,7 @@ class QueueFairAdapter {
       const req = what.request(url, options, (res) => {
         if (this.d) this.log('Response code: '+res.statusCode);
         if (res.statusCode != 200) {
-          releaseGetting();
+          this.releaseGetting();
           return reject(new Error('stauscode='+res.statusCode));
         }
         let responseBody = '';
@@ -992,8 +1031,8 @@ class QueueFairAdapter {
       });
 
       req.on('error', (err) => {
-        releaseGetting();
-        errorHandler(err);
+        this.releaseGetting();
+        this.errorHandler(err);
         reject(err);
       });
 
