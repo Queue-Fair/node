@@ -465,7 +465,7 @@ class QueueFairAdapter {
 
       if (this.d) this.log('Validating Passed Query ' + str);
 
-      const qpos = str.lastIndexOf(str, 'qfqid=');
+      const qpos = str.lastIndexOf('qfqid=');
 
       if (qpos === -1) {
         if (this.d) this.log('No Queue Identifier');
@@ -524,7 +524,6 @@ class QueueFairAdapter {
       if (this.d) this.log('Query validation failed with error '+err);
       return false;
     }
-    return true;
   }
 
   /** Called to set the UID from a cookie if present. */
