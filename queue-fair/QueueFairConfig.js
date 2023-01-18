@@ -13,7 +13,7 @@ exports.filesServer='files.queue-fair.net';
 
 // Time limit for Passed Strings to be considered valid,
 // before and after the current time
-exports.queryTimeLimitSeconds=30;
+exports.queryTimeLimitSeconds=300;
 
 // Valid values are true, false, or an "IP_address".
 exports.debug=false;
