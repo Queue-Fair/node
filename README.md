@@ -60,7 +60,7 @@ Here's how to add Queue-Fair to your Node.js project.
 
 **6.** Take a look at `QueueFairConfig.js`, which shows the available configuration options for the adapter.
 
-**7.** Set your Account Secret and Account System Name in the code where indicated.
+**7.** Set your Account Secret and Account System Name in the code where indicated.  These are shown on the Account -> Your Account page in the Portal.
 
 **8.** The recommended way of using the Adapter is with async/await, as shown in the the `get('/')` method of `server.js`.  You can also use it without await, but if you do that only Simple mode is supported. That is shown in the `get('/about')` method of `server.js`.
 
