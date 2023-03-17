@@ -66,7 +66,9 @@ Here's how to add Queue-Fair to your Node.js project.
 
 **9.** **IMPORTANT** Note the `QueueFairConfig.debug` setting - this is set to true in the example code but you MUST set debug to false on production machines/live queues as otherwise your web logs will rapidly become full.  You can safely set it to a single IP address to just output debug information for a single visitor, even on a production machine.
 
-**10.** To run the adapter, call `goQueueFair()` in your routes or headers as shown in server.js
+**10.** **IMPORTANT** Unlike the JavaScript Client-Side Adapter, which only runs in browsers that run JavaScript and only on browsers requesting page URLs that contain the Adapter tag, the Server-Side Adapter runs on every request. That means if you have automated systems that call API or callback URLs on your site (such as payment gateways), and your Activation Rules match those URLs, they will also be queued when things get busy, which can have adverse effects. We recommend that you exclude API or callback URLs from the Adapter in logic in your code - you can also use the Activation Rules to achieve this.
+
+**11.** To run the adapter, call `goQueueFair()` in your routes or headers as shown in server.js
 
 That's it your done!
 
